@@ -4,7 +4,7 @@ import { getAssestPath } from '@/lib/utils';
 
 const TrendingDestination = () => {
   return (
-    <section className="  container my-25 ">
+    <section className="  container my-16">
       <div className=" mb-4 space-y-2 ">
         <h2 className="text-black text-2xl font-bold mt-10">
           Trending Destinations
