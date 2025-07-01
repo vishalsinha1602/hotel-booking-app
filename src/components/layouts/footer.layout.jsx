@@ -1,62 +1,51 @@
+import { FOOTER_SECTION, SOCIAL_LINKS } from '@/config/app.config';
 import React from 'react';
-import { FOOTER_SECTION } from '@/config/app.config';
-import { SOCIAL_LINKS } from '@/config/app.config';
 import Icon from '../ui/icon';
+import dayjs from 'dayjs';
 
 const Footer = () => {
   return (
-    <footer className="min-h-[150px] bg-accent pt-10  text-black text-base">
-      <div className="container grid grid-cols-2 mb-5 md:grid-cols-3 lg:grid-cols-5 gap-8">
-        {FOOTER_SECTION.map((section, idx) => (
-          <div key={idx}>
-            <h4 className="font-bold text-lg mb-4">{section.title}</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              {section.links.map((link, linkIdx) => (
-                <li key={linkIdx}>
-                  <a
-                    href={link.href}
-                    className="text-sm hover:underline hover:text-primary transition-colors"
-                    target={link.href.startsWith('https') ? '_blank' : '_self'}
-                    rel={
-                      link.href.startsWith('https')
-                        ? 'noopener noreferrer'
-                        : undefined
-                    }
-                  >
-                    {link.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      {/* BottomBar */}
-
-      <div className="bg-brand min-h-[50px] flex flex-col md:flex-row items-center justify-between px-5 md:px-8 py-4 text-white text-sm">
-        {/* Social Icons */}
-        <div className="flex gap-4 mb-2 md:mb-0">
-          {SOCIAL_LINKS.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={item.title}
-              className="hover:text-primary transition-colors"
-            >
-              <Icon icon={item.icon} />
-            </a>
+    <div className="bg-secondary">
+      <footer className="container">
+        <div className="grid grid-cols-[repeat(auto-fill,_minmax(190px,1fr))] py-4 gap-6">
+          {FOOTER_SECTION.map((section, index) => (
+            <div key={index} className="flex flex-col gap-3">
+              <h3 className="text-sm font-bold">{section.title}</h3>
+              <ul className="flex flex-col gap-1">
+                {section.links.map((link, index) => (
+                  <li key={index}>
+                    <a href={link.href} className="text-sm hover:underline">
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
-
-        {/* Copyright */}
-        <div className="text-center md:text-right">
-          © 2025 Booking.com™. All rights reserved.
+      </footer>
+      <div className="bg-brand">
+        <div className="flex flex-col flex-wrap items-center justify-center gap-4 p-4 mx-auto sm:flex-row sm:justify-between max-w-7xl">
+          <div className="flex items-center justify-center gap-4">
+            {SOCIAL_LINKS.map((link, index) => (
+              <a
+                href={link.href}
+                key={index}
+                className="text-slate-100 hover:text-slate-300 transition-colors"
+              >
+                <Icon icon={link.icon} size="18" />
+              </a>
+            ))}
+          </div>
+          <div>
+            <p className="text-sm text-center text-white">
+              Copyright &copy; {dayjs().year()} Booking.com™. All rights
+              reserved.`
+            </p>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

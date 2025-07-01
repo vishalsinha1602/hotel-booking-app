@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 :root {
   --background: hsl(0 0% 100%);
@@ -84,7 +84,7 @@
   --spacing-padding: 0.5rem;
 
   /* font */
-  --font--sans: "Open Sans", system-ui, sans-serif;
+  --font--sans: 'Open Sans', system-ui, sans-serif;
 }
 
 * {
@@ -104,4 +104,8 @@ body {
   &:hover {
     scrollbar-color: var(--primary) var(--brand-color);
   }
+}
+
+.height-auto {
+  height: auto;
 }

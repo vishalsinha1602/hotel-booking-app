@@ -1,8 +1,8 @@
-import icons from '@/lib/icons';
+import icons from '@/lib/icons.jsx';
 
 const Icon = ({ icon, ...props }) => {
   const IconComponent = icons[icon];
-  return <IconComponent />;
+  return <IconComponent {...props} />;
 };
 
 export default Icon;
